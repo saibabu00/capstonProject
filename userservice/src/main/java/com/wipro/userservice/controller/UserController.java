@@ -1,5 +1,6 @@
 package com.wipro.userservice.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -77,16 +78,18 @@ public class UserController {
 		return new ResponseEntity<User>(userRepo.save(newData), HttpStatus.OK);	
 		
 	}
-	@GetMapping("/getAllUsers")
-	public ResponseEntity<?> getAllUsers(){
+	@GetMapping("/users")
+	public ResponseEntity<?> getAllUsers() throws UserNotFoundException {
 		try {
-			List<User> userList = userService.getAllUsers();
-			return new ResponseEntity<>(userList,HttpStatus.OK);
-		}
-		catch(Exception e){
-			return new ResponseEntity<String>("{ \" message\": \"" + e.getMessage() + "\"}", HttpStatus.UNAUTHORIZED);
 			
-		}
+		
+		List<User> user = userService.getAllUsers();
+	   return new ResponseEntity<List<User>>(user, HttpStatus.OK);
+	}
+	catch(Exception e) {
+		return new ResponseEntity<>(e.getMessage(),HttpStatus.NOT_FOUND);
+	}
+		
 	}
 }
 

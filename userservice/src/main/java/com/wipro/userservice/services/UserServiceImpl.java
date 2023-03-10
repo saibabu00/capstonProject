@@ -2,6 +2,7 @@ package com.wipro.userservice.services;
 
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,16 +26,15 @@ public class UserServiceImpl implements UserService {
 		super();
 		this.userRepo = userRepo;
 	}
-	
 
 	@Override
-	public boolean saveUser(User user) throws UserAlreadyExsitsException {
+	public User saveUser(User user) throws UserAlreadyExsitsException {
 		Optional<User> existingUser = userRepo.findById(user.getUserId());
 		if (existingUser.isPresent()) {
 			throw new UserAlreadyExsitsException("User with id already exists");
 		}
 		userRepo.save(user);
-		return true;
+		return user;
 	}
 
 	@Override
@@ -74,16 +74,18 @@ public class UserServiceImpl implements UserService {
 	
 	}
 
-
 	@Override
 	public List<User> getAllUsers() throws UserNotFoundException {
-		List<User> userList = userRepo.findAll();
-		if(userList == null) {
-			throw new UserNotFoundException("User list not found");
-		}
-		else {
-			return userList;
-		}
+		// TODO Auto-generated method stub
+		try {
+		 List<User> users = new ArrayList<User>();
+		 userRepo.findAll().forEach(user -> users.add(user));
+		return users;
+	} 
+	catch (Exception e){
+		throw new UserNotFoundException("User doesn't exists");
+	}
+		
 	}
 	
 	

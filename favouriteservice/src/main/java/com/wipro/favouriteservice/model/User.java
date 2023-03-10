@@ -14,14 +14,12 @@ public class User {
 	@JsonProperty("username")
 	private String username;
 	
-	private List<Player> playerList;
 	
+	private List<Player> playerList;
 
 	public User() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-	
 
 	public User(String username, List<Player> playerList) {
 		super();
@@ -29,29 +27,43 @@ public class User {
 		this.playerList = playerList;
 	}
 
-
+	/**
+	 * @return the username
+	 */
 	public String getUsername() {
 		return username;
 	}
 
+	/**
+	 * @param username the username to set
+	 */
 	public void setUsername(String username) {
 		this.username = username;
 	}
 
+
+	/**
+	 * @return the playerList
+	 */
 	public List<Player> getPlayerList() {
 		return playerList;
 	}
 
+	/**
+	 * @param playerList the playerList to set
+	 */
 	public void setPlayerList(List<Player> playerList) {
 		this.playerList = playerList;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
-		return "User [username=" + username + ", playerList=" + playerList + "]";
+		return "User [username=" + username +  ", playerList="
+				+ playerList + "]";
 	}
-	
-	
 	
 	
 	

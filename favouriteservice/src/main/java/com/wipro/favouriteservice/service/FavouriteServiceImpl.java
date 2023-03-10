@@ -42,7 +42,7 @@ public class FavouriteServiceImpl implements FavouriteService {
 		if (playerList != null) {
 			for (Player p : playerList) {
 				System.out.println("entered for block");
-				if (p.getPlayerName().equals(player.getPlayerName())) {
+				if (p.getPid().equals(player.getPid())) {
 					throw new PlayerAlreadyExistsException();
 				}
 			}
@@ -66,7 +66,7 @@ public class FavouriteServiceImpl implements FavouriteService {
 	}
 
 	@Override
-	public User deletePlayerFromFavorite(String player, String username) throws PlayerNotFoundException {
+	public User deletePlayerFromFavorite(String pId, String username) throws PlayerNotFoundException {
 		User user1 = favRepository.findByUsername(username);
 		boolean trackFound = false;
 		int indexnum = 0;
@@ -75,7 +75,7 @@ public class FavouriteServiceImpl implements FavouriteService {
 		if (playerList != null && playerList.size() > 0) {
 			for (Player t : playerList) {
 				indexnum++;
-				if (t.getPlayerName().equals(player)) {
+				if (t.getPid().equals(pId)) {
 					playerList.remove(indexnum - 1);
 					user1.setPlayerList(playerList);
 					favRepository.save(user1);

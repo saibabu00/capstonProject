@@ -43,14 +43,8 @@ public class FavouriteServiceTest {
 		MockitoAnnotations.initMocks(this);
 		cPlayer = new Player();
 		
-		cPlayer.setPlayerName("sachin");
-		cPlayer.setMatches(23);
-		cPlayer.setRuns(555);
-		cPlayer.setHundreds(129);
-		cPlayer.setFifties(50);
-		
-		
-		
+		cPlayer.setName("sachin");
+		cPlayer.setPid("99");
 		list = new ArrayList();
 		list.add(cPlayer);
 
@@ -80,7 +74,7 @@ public class FavouriteServiceTest {
 	@Test
 	public void deletePlayerFromFavoriteListTest() throws  PlayerNotFoundException {
 		Mockito.when(favRepository.findByUsername(user.getUsername())).thenReturn(user);
-		User fetchedUser = favouriteServiceImpl.deletePlayerFromFavorite(cPlayer.getPlayerName(),user.getUsername());
+		User fetchedUser = favouriteServiceImpl.deletePlayerFromFavorite(cPlayer.getPid(),user.getUsername());
 		Assert.assertEquals(fetchedUser, user);
 		verify(favRepository, timeout(1)).findByUsername(user.getUsername());
 		verify(favRepository, times(1)).save(user);
