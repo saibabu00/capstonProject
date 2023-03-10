@@ -1,0 +1,39 @@
+<div class="login">
+<div class="center">
+ 
+    <h1 style="font-family: 'Goldman'">Login</h1>
+    <form method="post" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+        <div class="txt_field">
+            <input
+            [(ngModel)]="user.userId" [(ngModel)]="credentials.userId"
+            name="userId"
+
+            type="text" required  formControlName="userId" id="saveId">
+            <span></span>
+            <label>User Id</label>
+        </div>
+        <div class="txt_field">
+            <input
+            [(ngModel)]="user.password" [(ngModel)]="credentials.password"
+            name="password"
+            type="password" required formControlName="password">
+            <span></span>
+            <label>Password</label>
+        </div>
+        <div class="two">
+            <input type="submit" value="Login">
+            <input type="reset" value="Clear" style="margin-left:10px;">
+        </div>
+
+        <div class="signup_link">
+          Not a member?  <a routerLink="/register" >SignUp</a>
+        </div>
+    </form>
+    <!-- {{credentials | json}} -->
+
+</div>
+</div>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Goldman&display=swap');
+</style>
+

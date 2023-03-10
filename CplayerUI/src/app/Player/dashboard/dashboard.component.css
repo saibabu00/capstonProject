@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap');
+
+
+.login{
+    font-family: montserrat;
+    background-color: rgb(20, 22, 22);
+    background-image: url("https://images.newindianexpress.com/uploads/user/imagelibrary/2018/1/18/original/ViratKohlikk88kk.jpg?w=400&dpr=2.6");
+    background-repeat: no-repeat;
+    height: 100vh;
+
+    overflow: hidden;
+    position: relative;
+}
+
+.center{
+    position: absolute;
+    top: 50%;
+    left: 83%;
+    transform: translate(-50%,-50%);
+    width: 450px;
+    background: rgb(234, 222, 52);
+    border-radius: 10px;
+}
+
+.center h1{
+    text-align: center;
+    padding: 20px 0 20px 0;
+    border-bottom: 1px solid silver;
+    font-style: oblique;
+    color: rgb(143, 22, 22);
+}
+
+.center form{
+    padding:0 40px;
+    box-sizing: border-box;
+}
+
+form .txt_field{
+   position: relative;
+   border-bottom: 2px solid #adadad;
+   margin: 30px 0;
+}
+
+.txt_field input{
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border:none ;
+    background: none;
+    outline: none;
+}
+
+.txt_field label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateX(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: .5s;
+    padding-left: 45px;
+}
+
+.txt_field span::before{
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #2691d9;
+    transition: .5s;
+  }
+  .txt_field input:focus ~ label,
+  .txt_field input:valid ~ label{
+    top: -5px;
+    color: #2691d9;
+  }
+  .txt_field input:focus ~ span::before,
+  .txt_field input:valid ~ span::before{
+    width: 100%;
+  }
+  .pass{
+    margin: -5px 0 20px 5px;
+    color: #a6a6a6;
+    cursor: pointer;
+  }
+  .pass:hover{
+    text-decoration: underline;
+  }
+  input[type="submit"]{
+    width: 100%;
+    height: 50px;
+    border: 1px solid;
+    background: #2691d9;
+    border-radius: 10px;
+    font-size: 18px;
+    float: left;
+    color: #e9f4fb;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+  }
+  input[type="reset"]{
+    width: 100%;
+    height: 50px;
+    border: 1px solid;
+    background: #2691d9;
+    border-radius: 25px;
+    font-size: 18px;
+    color: #e9f4fb;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+  }
+  input[type="submit"]:hover{
+    border-color: #2691d9;
+    transition: .5s;
+  }
+  input[type="reset"]:hover{
+    border-color: #2691d9;
+    transition: .5s;
+  }
+
+
+
+
+  .two{
+    display: flex;
+    margin: 10px;
+    padding-left: 40px;
+  }
+/* .sides{
+ margin-left: 70px;
+} */
+.box{
+ /* width: 100px; */
+ /* display: inline-block; */
+ display: flex;
+}
+
+#three{
+  border-radius: 10%;
+}
+
+

@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+      <div class="col">
+          <div mat-dialog-actions >
+              <button class="close1"  mat-raised-button color="warn" (click)="onNoClick()">Close</button>
+            </div>
+<mat-card class="example-card">
+  
+  <mat-card-header class="header" >
+      <img mat-card-image class="image" [src]='CPlayersDetails.playerImg' alt="image loading">
+      <mat-card-title >{{CPlayersDetails.name}}</mat-card-title>
+    </mat-card-header>
+   
+    <table class="player">
+      <tr>
+          <th>Date Of Birth &nbsp;&nbsp; : </th>
+          <td colspan="2">{{CPlayersDetails.dateOfBirth}}</td>
+      </tr>
+      <tr>
+          
+          <th>Place Of Birth &nbsp;:</th>
+          <td colspan="2">{{CPlayersDetails.placeOfBirth}}</td>
+      </tr>
+      <tr>
+        <th>Plays for &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</th>
+        <td colspan="2" >{{CPlayersDetails.country}}</td>
+      </tr>
+      <tr>
+          <th> Role  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </th>
+          <td colspan="2">{{CPlayersDetails.role}}</td>
+        </tr>
+      <tr>
+          <th>Date Of Birth &nbsp;:</th>
+          <td colspan="2" >{{CPlayersDetails.dateOfBirth}}</td>
+           
+      </tr>
+      <tr>
+          <th>Batting Style &nbsp; : </th>
+          <td colspan="2">{{CPlayersDetails.battingStyle}}</td>
+        </tr>
+    
+        <tr>
+          <th>Bowling Style &nbsp;: </th>
+          <td colspan="2">{{CPlayersDetails.bowlingStyle}}</td>
+        </tr>
+        
+        
+  </table>
+  <button class="btn btn-danger"  (click)="viewStatistics()" style="letter-spacing:3px ; margin-top:15px;margin-left: 20px;">View Statistics</button>
+</mat-card>
+</div>
+</div>
+</div>

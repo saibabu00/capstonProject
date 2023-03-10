@@ -1,0 +1,63 @@
+
+<div class="bottom-border">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: linear-gradient(1200deg,#8e44ad, #2980b9)">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" id="title">CPlayer</a>
+      <button *ngIf="loggedIn" class="navbar-toggler " id="two" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon " ></span>
+      </button>
+      <div *ngIf="loggedIn" class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item" id="one" >
+            <a class="nav-link" aria-current="page" href="#" >
+              <img class="img_logo" src="assets/images/cricket_logo.png">
+            </a>
+          </li>
+          <li class="nav-item" id="one" >
+            <a *ngIf="loggedIn" class="nav-link" routerLink="/Playerlist">
+              <button mat-button class="btn btn-outline"type="submit" id="searchButton"><mat-icon>group</mat-icon>&nbsp;&nbsp;Batsman</button>
+            </a>
+          </li>
+          <li class="nav-item" id="one" >
+            <a *ngIf="loggedIn" class="nav-link" routerLink="/bowlerlist">
+              <button mat-button class="btn btn-outline"type="submit" id="searchButton"><mat-icon>group</mat-icon>&nbsp;&nbsp;Bowlers</button>
+            </a>
+          </li>
+          <li class="nav-item" id="one">
+            <a *ngIf="loggedIn" class="nav-link"routerLink="/favourites">
+              <button mat-button class="btn btn-outline" type="submit" id="searchButton"><mat-icon>favorite</mat-icon>&nbsp;&nbsp;Favorites</button>
+            </a>
+          </li>
+          <li class="nav-item" id="one">
+            <a *ngIf="loggedIn" class="nav-link" routerLink="/recommend">
+              <button mat-button class="btn btn-outline" type="submit" id="searchButton"><mat-icon>stars</mat-icon>&nbsp;&nbsp;Recommendations</button>
+            </a>
+
+          </li>
+        </ul>
+        <div class="d-flex">
+
+          <!-- <input class="form-control me-2" type="search" placeholder="Search player" [(ngModel)]="searchName"  aria-label="Search" required> -->
+          <a *ngIf="loggedIn">
+            <button routerLink="/search" mat-button class="btn btn-outline" type="submit" id="searchButton" ><mat-icon>search</mat-icon> &nbsp;Search</button>
+            </a>
+
+
+
+        </div>
+        <div class="login">
+            <a *ngIf="loggedIn" routerLink="/UserProfile"><button mat-button class="btn btn-outline" type="submit" id="searchButton" style="margin-right:10px;"><mat-icon>person_outline</mat-icon>&nbsp;&nbsp;{{USERID}}</button></a>
+            <a *ngIf="loggedIn"><button mat-button class="btn btn-outline" type="submit" id="searchButton" (click)="logoutUser()"><mat-icon>exit_to_app</mat-icon>&nbsp;&nbsp;Logout</button></a>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+
+
+</div>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Eczar&family=Libre+Baskerville&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">

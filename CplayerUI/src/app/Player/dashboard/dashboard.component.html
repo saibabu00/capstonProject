@@ -1,0 +1,38 @@
+<div class="login">
+    <div class="center">
+        <h1 style="font-family: 'Goldman'">{{users.firstName}}   {{users.lastName}}</h1>
+        <form method="post">
+           
+
+            <div class="box">
+                <ul type="none">
+                    <li><h3>First Name   :</h3></li>
+                    <li><h3>Last Name  :</h3></li>
+                    <li><h3>Email   :</h3></li>
+                    <li><h3>User ID  :</h3></li>
+                    <li><h3>Password  :</h3></li>
+                </ul>
+                <ul type="none">
+                    <li><h3>{{users.firstName}}</h3></li>
+                    <li><h3>{{users.lastName}}</h3></li>
+                    <li><h3>{{users.email}}</h3></li>
+                    <li><h3>{{users.userId}}</h3></li>
+                    <li><h3>{{users.password}}</h3></li>
+                </ul>
+            </div>
+
+            <div class="two">
+             <a routerLink="/update" id="three"><input type="submit" value="Update" ></a>
+                <!-- <label for="" class="">Update</label> -->
+                <a routerLink="/Playerlist" id="three"><input type="submit" value="Home" style="margin-left:10px;"></a>
+            </div>
+        </form>
+        <!-- {{credentials | json}} -->
+       
+    </div>
+    </div>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Goldman&display=swap');
+    </style>
+    
+

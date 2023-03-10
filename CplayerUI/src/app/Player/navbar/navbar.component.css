@@ -1,0 +1,50 @@
+#title{
+    color: white;
+    font-family: Eczar;
+    font-size: xx-large;
+
+}
+#one a{
+    color:white;
+}
+
+#searchButton{
+    color: black;
+    background-color: rgb(202, 236, 250);
+    font-size: larger;
+}
+
+#two{
+    color: black;
+    background-color: rgb(193, 246, 33);
+}
+.login{
+    padding-left: 1%;
+    display: flex;
+}
+
+.bottom-border{
+    border-bottom: 2px solid  rgb(193, 246, 33);
+    background-color: rgb(5, 5, 5);
+    border-top: 2px solid rgb(193, 246, 33);
+}
+
+.router{
+    position: relative;
+}
+
+.img_logo{
+  width: 50px;
+  height: 50px;
+}
+
+mat-icon{
+  margin:-5px;
+  padding: 0px;
+  color: rgb(0, 0, 0);
+  font-size: 25px;
+}
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Eczar&family=Libre+Baskerville&display=swap');

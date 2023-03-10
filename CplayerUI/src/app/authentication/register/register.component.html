@@ -1,0 +1,60 @@
+<div id="ram">
+  <div class="one">
+    <div class="center">
+
+      <h1>Register </h1>
+      <form method="post" class="register-form" [formGroup]="formgroup" (ngSubmit)="registerUser()"
+        #registerForm="ngForm">
+        <div class="txt_field">
+          <input type="text" required formControlName="firstName" [(ngModel)]="newUser.firstName">
+          <span></span>
+          <label>First Name</label>
+        </div>
+        <span class="text-danger"
+          *ngIf="(formgroup.controls['firstName'].dirty || formgroup.controls['firstName'].touched) && (formgroup.get('firstName')?.hasError('required'))">
+          FirstName is required</span>
+        <span class="text-danger"
+          *ngIf="formgroup.get('firstName')?.hasError('pattern') || formgroup.get('firstName')?.hasError('minlength')">
+          Enter correct firstname with min 3 characters</span>
+        <div class="txt_field">
+          <input type="text" required formControlName="lastName" [(ngModel)]="newUser.lastName">
+          <span></span>
+          <label>Last Name</label>
+        </div>
+        <span class="text-danger"
+          *ngIf="(formgroup.controls['lastName'].dirty || formgroup.controls['lastName'].touched) && formgroup.get('lastName')?.hasError('required')">LastName
+          is required</span>
+        <span class="text-danger"
+          *ngIf="(formgroup.get('lastName')?.hasError('minlength') || formgroup.get('lastName')?.hasError('pattern'))">Enter
+          correct lastName with min 3 characters</span>
+        <div class="txt_field">
+          <input type="text" required formControlName="userId" [(ngModel)]="newUser.userId">
+          <span></span>
+          <label>User Id</label>
+        </div>
+        <span class="text-danger"
+          *ngIf="(formgroup.controls['userId'].dirty || formgroup.controls['userId'].touched) && formgroup.get('userId')?.hasError('required')">UserId
+          is required</span>
+        <span class="text-danger" *ngIf="formgroup.get('userId')?.hasError('minlength')"> Minimum length should be 6
+          characters</span>
+    <div class="txt_field">
+      <input type="email" required formControlName="email" [(ngModel)]="newUser.email">
+      <span></span>
+      <label>Email</label>
+      </div>
+      <span class="text-danger" *ngIf="(formgroup.controls['email'].dirty) && formgroup.get('email')?.hasError('required') || formgroup.get('email')?.hasError('pattern')">Email is required and should be valid</span>
+    <div class="txt_field">
+      <input type="password" required formControlName="password" [(ngModel)]="newUser.password">
+      <span></span>
+      <label>Password</label>
+    </div>
+    <span class="text-danger" *ngIf="(formgroup.controls['password'].dirty) && formgroup.get('password')?.hasError('required')">Password is required</span>
+    <span class="text-danger" *ngIf="formgroup.get('password')?.hasError('minlength')">Password should contain min 8 characters</span>
+    <input type="submit" value="Sign up" [disabled]='registerForm.invalid'>
+    <div class="signup_link">
+      Already a member? <a routerLink="/login">Login</a>
+    </div>
+    </form>
+  </div>
+</div>
+</div>

@@ -1,0 +1,67 @@
+<div id="hemanth">
+<div class="container" >
+    <div class="row">
+        <div class="col mt-5">
+            <h1 style="text-align:center;font-family: 'Goldman', cursive;letter-spacing: 3px;color:rgb(85, 29, 29)"><b>Recommend of Players</b></h1>
+            <h1></h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mt-5">
+            <mat-table [dataSource]="dataSource " class="mat-elevation-z8"  matSort >
+
+                <ng-container matColumnDef="playerName">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header style="background-color:rgb(33, 20, 96);color:rgb(225, 225, 225)"> PlayerName </mat-header-cell>
+                     <mat-cell *matCellDef="let element" > {{element.playerName}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="span">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header style="background-color:rgb(33, 20, 96);color:rgb(225, 225, 225)"> Span </mat-header-cell>
+                     <mat-cell *matCellDef="let element" > {{element.span}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="matches">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header style="background-color:rgb(33, 20, 96);color:rgb(225, 225, 225)"> Matches </mat-header-cell>
+                     <mat-cell *matCellDef="let element"> {{element.matches}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="runs">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header style="background-color:rgb(33, 20, 96);color:rgb(225, 225, 225)"> Runs </mat-header-cell>
+                     <mat-cell *matCellDef="let element" > {{element.runs}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="hundreds">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header style="background-color:rgb(33, 20, 96);color:rgb(225, 225, 225)"> Hundreds </mat-header-cell>
+                     <mat-cell *matCellDef="let element" > {{element.hundreds}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="fifties">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header style="background-color:rgb(33, 20, 96);color:rgb(225, 225, 225)"> Fiftes </mat-header-cell>
+                     <mat-cell *matCellDef="let element" > {{element.fifties}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="actions">
+                    <mat-header-cell *matHeaderCellDef style="background-color:rgb(33, 20, 96);color:rgb(225, 225, 225)">Actions</mat-header-cell>
+                     <mat-cell *matCellDef="let row ; let element">
+                        <button  mat-raised-button color = "primary" class="viewdetails" [ngStyle]="{'margin-right': '8px'}" (click)="getDetails(element.playerId)" > View Details </button>
+                          <button mat-raised-button color = "accent" class="addfav"  (click)="addToFavorite(element)">Add to Favorites </button>
+                     </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="loading" >
+                    <mat-footer-cell *matFooterCellDef colspan="6">
+                        <mat-spinner [diameter]="40" [ngStyle]="{'margin-top': '20px','margin-bottom':'20px'}" *ngIf="showSpinner" > </mat-spinner>
+                     </mat-footer-cell>
+                </ng-container>
+                <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: columnsToDisplay;"></mat-row>
+                <mat-footer-row *matFooterRowDef="['loading']"  [ngClass]="{'hide':check=='0'}"> </mat-footer-row>
+
+            </mat-table>
+            <!-- <mat-paginator #paginator [pageSizeOptions]="[5, 6, 7]" style="background-color:rgb(193, 246, 33);color:black">
+            </mat-paginator> -->
+        </div>
+    </div>
+
+
+
+    </div><style>
+      @import url('https://fonts.googleapis.com/css2?family=Goldman&display=swap');
+      </style>
+
+
+
+
