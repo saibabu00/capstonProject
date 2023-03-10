@@ -36,7 +36,7 @@ import reactor.core.publisher.Mono;
 //
 
 @RestController
-@RequestMapping("/player")
+@RequestMapping("/api/v1/playerlist")
 public class PlayerController {
 	
 	WebClient webClient;

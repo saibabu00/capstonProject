@@ -27,7 +27,7 @@ import com.wipro.admin.service.AdminService;
 import reactor.core.publisher.Flux;
 
 @RestController
-@RequestMapping("/admin")
+@RequestMapping("/api/v1/admin")
 @CrossOrigin(origins = "*")
 public class AdminController {
 	
