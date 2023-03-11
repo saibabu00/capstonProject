@@ -22,7 +22,8 @@ const routes: Routes = [
   },
   {
     path:'search',
-    component:SearchComponent
+    component:SearchComponent,
+    canActivate:[AuthGuard]
   },
   {
     path:'login',
@@ -44,23 +45,28 @@ const routes: Routes = [
   },
   {
     path:'UserProfile',
-    component:DashboardComponent
+    component:DashboardComponent,
+    canActivate:[AuthGuard]
   },
   {
     path:'update',
-    component:UpdateComponent
+    component:UpdateComponent,
+    canActivate:[AuthGuard]
   },
   {
     path:'favourites',
-    component:FavouritesComponent
+    component:FavouritesComponent,
+    canActivate:[AuthGuard]
   },
   {
     path:'recommend',
-    component:RecommendComponent
+    component:RecommendComponent,
+    canActivate:[AuthGuard]
   },
   {
   path:'bowlerlist',
-  component:BowlerlistComponent
+  component:BowlerlistComponent,
+  canActivate:[AuthGuard]
   }
 
 ];

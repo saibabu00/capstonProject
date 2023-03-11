@@ -18,6 +18,7 @@ export class CplayerServiceService {
   searchInfo:string;
   recommendEndPoint: string;
   username: string="";
+  favend:String="";
 
 
   constructor(private http: HttpClient) {
@@ -29,6 +30,8 @@ export class CplayerServiceService {
     this.playerInfo='https://api.cricapi.com/v1/players_info?';
     this.searchInfo = "http://localhost:8091/player/searchPlayer/";
     this.favouritEndPoint= 'http://localhost:8083/api/v1/favoriteservice';
+    this.favend = "http://localhost:8083/api/v1/favoriteservice/user/Deleteplayer/"
+
     this.recommendEndPoint= 'http://localhost:8082/api/v1/player/recommend/10';
     this.bowlerInfo = "http://localhost:8091/player/searchBowler/";
 
@@ -67,7 +70,8 @@ return this.http.get<CricPlayer[]>(url);
 deleteFromFavoriteList(cPlayer:CricPlayer)
 {
 this.username = sessionStorage.getItem(USER_NAME) || '{}';
-const url = this.favouritEndPoint + "/user/" + this.username + "/Deleteplayer/"+cPlayer.playerName;
+const url = this.favouritEndPoint + "/user/" + this.username + "/Deleteplayer/" + `${cPlayer.playerName}`;
+// const url = `${this.favend}${this.username}${"/"}${cPlayer.playerName}`
 return this.http.delete(url);
 }
 
