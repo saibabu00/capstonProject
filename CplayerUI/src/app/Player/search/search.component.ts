@@ -15,8 +15,6 @@ import { PlayerDetailsComponent } from '../player-details/player-details.compone
   providedIn: 'root'
 })
 export class SearchComponent implements OnInit {
-  batsman:boolean=false;
-  bowler:boolean=false;
   searchKey:any=[];
   PlayersDetails:any=[];
   public Detailes:any=[];
@@ -27,7 +25,7 @@ export class SearchComponent implements OnInit {
    statusCode!: number;
   errorStatus: string="";
   data?:any;
-  bowlerdata?:any;
+  data1?:any;
   public cplayer: CricPlayer={} as CricPlayer;
   constructor(public dialog: MatDialog,private PlayerService:CplayerServiceService,private router:Router,private route: ActivatedRoute,private snackbar:MatSnackBar,private CPlayerListService: CplayerServiceService,private navbarComponent:NavbarComponent) {
     
@@ -64,9 +62,7 @@ export class SearchComponent implements OnInit {
 
 
   onSearching(){
-    // console.log("hello");
-    this.batsman=true;
-    this.bowler=false;
+    console.log("hello");
     this.PlayerService.getSearchPlayer(this.searchName).subscribe(
       
       data=>{
@@ -79,13 +75,10 @@ export class SearchComponent implements OnInit {
     )
   }
   searchBowler(){
-    this.bowler = true;
-    this.batsman=false;
-    console.log(this.bowler);
     this.PlayerService.searchBowler(this.bowlerName).subscribe(
-      res=>{
-        this.bowlerdata = res;
-        console.log(res);
+      data=>{
+        this.data1=data;
+        console.log(data);
       },
       error=>{
         console.log(error);

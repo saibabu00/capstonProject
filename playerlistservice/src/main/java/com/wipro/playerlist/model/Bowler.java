@@ -1,16 +1,9 @@
-package com.wipro.admin.model;
+package com.wipro.playerlist.model;
 
-import javax.persistence.Entity;
+//import javax.persistence.Entity;
 import javax.persistence.Id;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+//@Entity
 public class Bowler {
 	
 	@Id
@@ -20,6 +13,7 @@ public class Bowler {
 	private int wickets;
 	private String matches;
 	private int fiveWktHaul;
+	
 	public int getPbid() {
 		return pbid;
 	}
@@ -56,6 +50,10 @@ public class Bowler {
 	public void setFiveWktHaul(int fiveWktHaul) {
 		this.fiveWktHaul = fiveWktHaul;
 	}
+	public Bowler() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public Bowler(int pbid, String bowlerName, String span, int wickets, String matches, int fiveWktHaul) {
 		super();
 		this.pbid = pbid;
@@ -64,10 +62,6 @@ public class Bowler {
 		this.wickets = wickets;
 		this.matches = matches;
 		this.fiveWktHaul = fiveWktHaul;
-	}
-	public Bowler() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 	@Override
 	public String toString() {

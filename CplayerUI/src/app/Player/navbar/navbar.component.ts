@@ -45,7 +45,7 @@ export class NavbarComponent implements OnInit {
       duration:4000,
       verticalPosition:'top'
     })
-    this.router.navigate(['login']);
+    this.router.navigate(['/']);
 
   }
 

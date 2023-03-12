@@ -17,30 +17,30 @@ import org.springframework.web.bind.annotation.RestController;
 import com.wipro.favouriteservice.exception.FavouritesAreEmptyException;
 import com.wipro.favouriteservice.exception.PlayerAlreadyExistsException;
 import com.wipro.favouriteservice.exception.PlayerNotFoundException;
-import com.wipro.favouriteservice.exception.UserAlreadyExistsException;
 import com.wipro.favouriteservice.model.Player;
 import com.wipro.favouriteservice.model.User;
 import com.wipro.favouriteservice.service.FavouriteService;
 
 
 @RestController
-@CrossOrigin("*")
+@CrossOrigin(origins ="http://localhost:4200/")
 @RequestMapping("/api/v1/favoriteservice")
 public class FavoriteController {
 
-	private ResponseEntity responseEntity;
-
+//	private ResponseEntity responseEntity;
+    
+	@Autowired
 	private FavouriteService favService;
 
-	public FavoriteController() {
-		super();
-	}
+//	public FavoriteController() {
+//		super();
+//	}
+//
 
-	@Autowired
-	public FavoriteController(FavouriteService favService) {
-		super();
-		this.favService = favService;
-	}
+//	public FavoriteController(FavouriteService favService) {
+//		super();
+//		this.favService = favService;
+//	}
 
 	@PostMapping("/user/{username}/player")
 	public ResponseEntity<?> addPlayerToFavoriteList(@RequestBody Player cPlayer,
@@ -55,35 +55,33 @@ public class FavoriteController {
 			System.out.println("entered try block");
 			User user1 = favService.savePlayerToFavorite(cPlayer, username);
 			System.out.println(user1);
-			responseEntity = new ResponseEntity<User>(user1, HttpStatus.CREATED);
+			return new ResponseEntity<User>(user1, HttpStatus.CREATED);
 		} catch (PlayerAlreadyExistsException e) {
 			System.out.println("entered catch1  block");
 			throw new PlayerAlreadyExistsException();
 		} catch (Exception e) {
 			System.out.println("entered catch2 block");
-			responseEntity = new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 
 		}
-		return responseEntity;
 
 	}
 
-	@DeleteMapping("/user/{username}/Deleteplayer/{pid}")
-	public ResponseEntity<?> deleteFromList(@PathVariable String pid, @PathVariable String username)
+	@DeleteMapping("/user/{username}/Deleteplayer/{playerName}")
+	public ResponseEntity<?> deleteFromList(@PathVariable String playerName, @PathVariable String username)
 			throws PlayerNotFoundException {
 		System.out.println("called");
 		System.out.println(username);
-		System.out.println(pid);
+		System.out.println(playerName);
 		try {
-			User user1 = favService.deletePlayerFromFavorite(pid, username);
-			responseEntity = new ResponseEntity<User>(user1, HttpStatus.OK);
+			User user1 = favService.deletePlayerFromFavorite(playerName, username);
+			return new ResponseEntity<User>(user1, HttpStatus.OK);
 		} catch (PlayerNotFoundException e) {
 			throw new PlayerNotFoundException();
 		} catch (Exception e) {
-			responseEntity = new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 
 		}
-		return responseEntity;
 
 	}
 	
@@ -93,7 +91,7 @@ public class FavoriteController {
 		try {
 			 System.out.println("entered try block");
 			List<Player> playerList = favService.getPlayerList(username);
-		   responseEntity = new ResponseEntity(playerList, HttpStatus.OK);
+		   return new ResponseEntity<>(playerList, HttpStatus.OK);
 			
 		}
 		catch(FavouritesAreEmptyException e)
@@ -103,10 +101,9 @@ public class FavoriteController {
 		}
 		catch (Exception e) {
 			 System.out.println("entered catch2  block");
-			responseEntity = new ResponseEntity(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 
 		}
-		return responseEntity;
 
 	}
 

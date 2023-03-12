@@ -22,11 +22,10 @@ const routes: Routes = [
   },
   {
     path:'search',
-    component:SearchComponent,
-    canActivate:[AuthGuard]
+    component:SearchComponent
   },
   {
-    path:'login',
+    path:'',
     component:LoginComponent
   },
   {
@@ -45,28 +44,23 @@ const routes: Routes = [
   },
   {
     path:'UserProfile',
-    component:DashboardComponent,
-    canActivate:[AuthGuard]
+    component:DashboardComponent
   },
   {
     path:'update',
-    component:UpdateComponent,
-    canActivate:[AuthGuard]
+    component:UpdateComponent
   },
   {
     path:'favourites',
-    component:FavouritesComponent,
-    canActivate:[AuthGuard]
+    component:FavouritesComponent
   },
   {
     path:'recommend',
-    component:RecommendComponent,
-    canActivate:[AuthGuard]
+    component:RecommendComponent
   },
   {
   path:'bowlerlist',
-  component:BowlerlistComponent,
-  canActivate:[AuthGuard]
+  component:BowlerlistComponent
   }
 
 ];

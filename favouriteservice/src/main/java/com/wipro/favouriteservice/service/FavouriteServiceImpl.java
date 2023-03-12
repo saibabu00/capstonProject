@@ -15,14 +15,15 @@ import com.wipro.favouriteservice.repository.FavouriteRepository;
 
 @Service
 public class FavouriteServiceImpl implements FavouriteService {
-
+    
+	@Autowired
 	private FavouriteRepository favRepository;
 	
-	@Autowired
-	public FavouriteServiceImpl(FavouriteRepository favRepository) {
-		super();
-		this.favRepository = favRepository;
-	}
+//	@Autowired
+//	public FavouriteServiceImpl(FavouriteRepository favRepository) {
+//		super();
+//		this.favRepository = favRepository;
+//	}
 
 	@Override
 	public User savePlayerToFavorite(Player player, String username) throws PlayerAlreadyExistsException {
@@ -42,7 +43,7 @@ public class FavouriteServiceImpl implements FavouriteService {
 		if (playerList != null) {
 			for (Player p : playerList) {
 				System.out.println("entered for block");
-				if (p.getPid().equals(player.getPid())) {
+				if (p.getPlayerName().equals(player.getPlayerName())) {
 					throw new PlayerAlreadyExistsException();
 				}
 			}
@@ -66,16 +67,16 @@ public class FavouriteServiceImpl implements FavouriteService {
 	}
 
 	@Override
-	public User deletePlayerFromFavorite(String pId, String username) throws PlayerNotFoundException {
+	public User deletePlayerFromFavorite(String playerName , String username) throws PlayerNotFoundException {
 		User user1 = favRepository.findByUsername(username);
-		boolean trackFound = false;
+//		boolean trackFound = false;
 		int indexnum = 0;
 		List<Player> playerList = user1.getPlayerList();
 
 		if (playerList != null && playerList.size() > 0) {
 			for (Player t : playerList) {
 				indexnum++;
-				if (t.getPid().equals(pId)) {
+				if (t.getPlayerName().equals(playerName)) {
 					playerList.remove(indexnum - 1);
 					user1.setPlayerList(playerList);
 					favRepository.save(user1);

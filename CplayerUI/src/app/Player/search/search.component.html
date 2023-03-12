@@ -9,45 +9,41 @@
     </div>
   </div>
 
-  <div class="Search">
+  <div class="search ">
     <div style="padding-left: 37%;margin-top: 15px;">
-      <input class="form-control me-2" id="search" type="search" placeholder="Search Bowler" [(ngModel)]="bowlerName"
+      <input class="form-control me-2" id="search" type="search" placeholder="Search player" [(ngModel)]="bowlerName"
         aria-label="Search" required>
       <button mat-raised-button color="primary" type="submit" id="searchButton" (click)="searchBowler()">Search Bowler
       </button> &nbsp;<img id="ball" src="https://c.tenor.com/DBYx-E6apBwAAAAM/ball-on-fire-spinning.gif">
     </div>
   </div>
 
-  <div *ngIf="batsman" class="container">
+  <div class="container" style="float:none">
     <div class="row">
       <div class="col-md-auto " *ngFor="let d of data">
         <div class="card" id="ram">
           <div class="card-body">
             <h2 class="card-subtitle mb-2 ">PlayerName:{{d.playerName}}</h2>
             <h3>Span:{{d.span}}</h3>
-            <div>
+            <div class="fav">
               <!-- <input type="submit" value="View Details"  (click)="getDetails(d.id)"> -->
-              <button mat-raised-button color="accent" type="submit" style="margin-left:10px;" (click)="addToFavorite(d)">
-                Add Favorite
-                </button>
+              <input type="submit" value="Add favorite" style="margin-left:10px;" (click)="addToFavorite(d)">
             </div>
           </div>
         </div>
       </div>
     </div>
-    </div>
 
-    <div *ngIf="bowler" class="container">
-      <!-- <h1>hi</h1> -->
+    <div class="container" style="float:none">
       <div class="row">
-        <div class="col-md-auto " *ngFor="let bowler of bowlerdata">
+        <div class="col-md-auto " *ngFor="let d of data1">
           <div class="card" id="ram">
             <div class="card-body">
-              <h2 class="card-subtitle mb-2 ">BowlerName:{{bowler.bowlerName}}</h2>
-              <h3>Span:{{bowler.pbid}}</h3>
-              <div>
+              <h2 class="card-subtitle mb-2 ">BowlerName:{{d.bowlerName}}</h2>
+              <h3>Span:{{d.span}}</h3>
+              <div class="fav">
                 <!-- <input type="submit" value="View Details"  (click)="getDetails(d.id)"> -->
-                <button mat-raised-button color="accent" type="submit" value="Add favorite" style="margin-left:10px;" (click)="addToFavorite(bowler)">Add Favorite</button>
+                <input type="submit" value="Add favorite" style="margin-left:10px;" (click)="addToFavorite(d)">
               </div>
             </div>
           </div>

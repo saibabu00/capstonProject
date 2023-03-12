@@ -33,6 +33,8 @@ import { MatIconModule } from '@angular/material/icon'
 import {RecommendComponent} from "./Player/recommend/recommend.component";
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { BowlerlistComponent } from './Player/bowlerlist/bowlerlist.component';
+import { AdminComponent } from './Player/admin/admin.component';
+import { AddplayerComponent } from './Player/addplayer/addplayer.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import { BowlerlistComponent } from './Player/bowlerlist/bowlerlist.component';
     UpdateComponent,
     SearchComponent,
     RecommendComponent,
-    BowlerlistComponent
+    BowlerlistComponent,
+    AdminComponent,
+    AddplayerComponent
 
 
 

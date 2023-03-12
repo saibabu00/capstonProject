@@ -60,14 +60,17 @@ public class FavoriteConrollerTest {
 		mockMvc = MockMvcBuilders.standaloneSetup(favoriteController).build();
 		cPlayer = new Player();
 		
-		cPlayer.setName("sachin");
-		cPlayer.setPid("99");
-		cPlayer.setCountry("india");
+		cPlayer.setPlayerName("sachin");
+		cPlayer.setMatches(23);
+		cPlayer.setRuns(555);
+		cPlayer.setHundreds(129);
+		cPlayer.setFifties(50);
+//		cPlayer.setCountry("india");
 		list = new ArrayList();
 		list.add(cPlayer);
 
 		user = new User();
-		user.setUsername("santhosh");
+		user.setUsername("saibabu");
 		user.setPlayerList(list);
 	}
 

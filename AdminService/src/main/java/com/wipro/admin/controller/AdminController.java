@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import com.wipro.admin.model.Bowler;
 import com.wipro.admin.model.Player;
 import com.wipro.admin.model.User;
 import com.wipro.admin.service.AdminService;
@@ -27,7 +28,7 @@ import com.wipro.admin.service.AdminService;
 import reactor.core.publisher.Flux;
 
 @RestController
-@RequestMapping("/api/v1/admin")
+@RequestMapping("api/v1/admin")
 @CrossOrigin(origins = "*")
 public class AdminController {
 	
@@ -104,5 +105,63 @@ public class AdminController {
 			
 		}
 	}
+	@GetMapping("/getAllBowlers")
+	public ResponseEntity<?> getAllBowlers(){
+		List<Bowler> bowlerList = adminService.getAllBowlers();
+		if(bowlerList == null) {
+			return new ResponseEntity<>("Not found",HttpStatus.NOT_FOUND);
+		}
+		else {
+			return new ResponseEntity<List<Bowler>>(bowlerList,HttpStatus.OK);
+		}
+		
+		}
+	
+	@PostMapping("/addBowler")
+	public ResponseEntity<?> addBowler(@RequestBody Bowler bowler){
+		try {
+			adminService.addBowler(bowler);
+			return new ResponseEntity<String>("Bowler added",HttpStatus.OK);
+		}
+		catch(Exception e) {
+			return new ResponseEntity<String>("{ \" message\": \"" + e.getMessage() + "\"}", HttpStatus.CONFLICT);
+
+		}
+	}
+	
+	@DeleteMapping("/deleteBowler/{pbid}")
+	public ResponseEntity<?> deleteBowler(@PathVariable int pbid){
+		try {
+			adminService.deleteBowler(pbid);
+			return new ResponseEntity<String>("Bowler deleted",HttpStatus.OK);
+		}
+		catch(Exception e){
+			return new ResponseEntity<String>("{ \" message\": \"" + e.getMessage() + "\"}", HttpStatus.CONFLICT);
+		}
+		
+	}
+	
+	@GetMapping("/searchBowler/{bowlerName}")
+	public ResponseEntity<?> searchBowler(@PathVariable String bowlerName){
+		try {
+			List<Bowler> bowlerList = adminService.searchBowler(bowlerName);
+			return new ResponseEntity<List<Bowler>>(bowlerList,HttpStatus.OK);
+		}
+		catch(Exception e) {
+			return new ResponseEntity<String>("{ \" message\": \"" + e.getMessage() + "\"}", HttpStatus.CONFLICT);
+		}
+	}
+	@PutMapping("/update/{pbid}")
+	public ResponseEntity<?> updateBowler(@PathVariable int pbid,@RequestBody Bowler bowler){
+		try {
+			adminService.UpdateBowler(pbid, bowler);
+			return new ResponseEntity<String>("Bowler updated",HttpStatus.OK);
+		}
+		catch(Exception e) {
+			return new ResponseEntity<String>("{ \" message\": \"" + e.getMessage() + "\"}", HttpStatus.CONFLICT);
+			
+		}
+	}
+	
 
 }

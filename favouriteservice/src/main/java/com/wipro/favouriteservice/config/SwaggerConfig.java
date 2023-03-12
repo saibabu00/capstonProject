@@ -17,7 +17,7 @@ public class SwaggerConfig {
 	@Bean
 	public Docket postsApi() {
 
-	return new Docket(DocumentationType.SWAGGER_2).groupName("Team-07").apiInfo(apiInfo()).select()
+	return new Docket(DocumentationType.SWAGGER_2).groupName("cohort-14").apiInfo(apiInfo()).select()
 
 	.paths(regex("/api/v1.*")).build();
 
@@ -30,7 +30,7 @@ public class SwaggerConfig {
 
 		.termsOfServiceUrl("")
 
-		.license("Bhanu")
+		.license("saibabu")
 
 		.licenseUrl("").version("1.0").build();
 

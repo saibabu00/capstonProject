@@ -153,7 +153,8 @@ public class UserControllerTest {
 	                .andExpect(status().isUnauthorized());
 	                
 	    }
-//	    
+	    
+	    
 //	    @Test
 //	    public void testGetAllUsers() throws Exception {
 //	        List<User> userList = Arrays.asList(
@@ -172,8 +173,10 @@ public class UserControllerTest {
 //	        when(userRepo.findAll()).thenReturn(Collections.emptyList());
 //	        ResponseEntity<?> response = userController.getAllUsers();
 //	        assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
-//	        verify(userRepo, times(1)).findAll();
-//	    }
+//	        verify(userRepo, times(1)).findAll();    
+//	        
+//	    
+//}
 
 	    
 	    
